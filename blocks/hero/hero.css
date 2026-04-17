@@ -152,28 +152,66 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* --- Vegas-style animated hero buttons --- */
+
+@keyframes vegas-neon-pulse {
+  0%, 100% {
+    box-shadow:
+      3px 3px 0 0 var(--dark-color),
+      0 0 8px rgb(232 101 26 / 60%),
+      0 0 20px rgb(232 101 26 / 30%);
+  }
+
+  50% {
+    box-shadow:
+      3px 3px 0 0 var(--dark-color),
+      0 0 16px rgb(232 101 26 / 80%),
+      0 0 40px rgb(232 101 26 / 50%),
+      0 0 60px rgb(232 101 26 / 20%);
+  }
+}
+
+@keyframes vegas-border-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* primary button on hero — neon glow pulse */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
+  background: linear-gradient(135deg, #e8651a, #ff8a3d, #e8651a);
+  background-size: 200% 200%;
   border: 2px solid var(--accent-color);
   color: var(--dark-color);
+  animation: vegas-neon-pulse 2s ease-in-out infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  filter: brightness(1.15);
+  animation: vegas-neon-pulse 0.8s ease-in-out infinite;
 }
 
-/* secondary button on hero — white outline, dark shadow */
+/* secondary button on hero — shimmer border */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--dark-color), var(--dark-color)),
+    linear-gradient(90deg, #e8651a, #ffd700, #ff3cac, #00d4ff, #e8651a);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 200% 100%;
   color: var(--background-color);
+  animation: vegas-border-shimmer 3s linear infinite;
+  box-shadow: 3px 3px 0 0 rgb(255 215 0 / 40%);
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
+  background-image:
+    linear-gradient(var(--accent-color), var(--accent-color)),
+    linear-gradient(90deg, #e8651a, #ffd700, #ff3cac, #00d4ff, #e8651a);
   color: var(--dark-color);
+  animation: vegas-border-shimmer 1s linear infinite;
+  box-shadow: 5px 5px 0 0 rgb(255 215 0 / 60%);
 }
 
 @media (width < 768px) {
