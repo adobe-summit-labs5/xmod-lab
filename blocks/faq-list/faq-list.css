@@ -107,19 +107,17 @@
   background: none;
 }
 
-/* --- FAQ item (details element) — filled pill card with shadow --- */
+/* --- FAQ item (details element) — rounded pill with hover accent --- */
 .faq-list details {
-  border: 1px solid #b4aea1;
-  border-radius: 25px;
+  border: 1px solid var(--faq-border-color);
+  border-radius: 16px;
   overflow: hidden;
-  margin-bottom: var(--gap-md);
-  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-  background-color: var(--faq-hover-bg);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: var(--gap-xs);
+  transition: border-color 0.15s ease;
 }
 
 .faq-list details:hover {
-  border-color: #9a9389;
+  border-color: var(--faq-accent-color);
 }
 
 .faq-list details p {
@@ -130,69 +128,61 @@
   margin: 0;
 }
 
-/* --- Question (summary) — flex layout with chevron icon --- */
+/* --- Question (summary) — flex layout with plus icon --- */
 .faq-list details summary {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--gap-lg) var(--gap-xl);
+  padding: var(--faq-question-padding);
   cursor: pointer;
   list-style: none;
   font-family: var(--body-font-family);
   font-size: var(--faq-question-font-size);
-  font-weight: 700;
+  font-weight: var(--faq-question-font-weight);
   text-transform: none;
   letter-spacing: normal;
-  line-height: 1.3;
+  line-height: 1.6;
   color: var(--dark-color);
-  background-color: var(--faq-hover-bg);
-  border-radius: 25px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.15s ease;
 }
 
 .faq-list details summary::-webkit-details-marker {
   display: none;
 }
 
-/* Hover: slightly darker background */
+/* Hover: warm background on question row */
 .faq-list details summary:hover {
-  background-color: #e8e2d8;
+  background-color: var(--faq-hover-bg);
 }
 
-/* Open state: salmon/peach header bar */
+/* Open state: keep hover background on summary */
 .faq-list details[open] summary {
-  background-color: #f4c9b1;
-  border-radius: 24px 24px 0 0;
+  background-color: var(--faq-hover-bg);
+  border-radius: 15px 15px 0 0;
 }
 
-/* Chevron icon — rotates from down to up when open */
+/* Plus icon → rotates 45° to × when open */
 .faq-list details summary::after {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-right: 3px solid var(--dark-color);
-  border-bottom: 3px solid var(--dark-color);
-  margin-left: var(--gap-md);
+  content: "+";
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--faq-accent-color);
+  margin-left: var(--gap-md, 16px);
   flex-shrink: 0;
-  transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
 
 .faq-list details[open] summary::after {
-  transform: rotate(-135deg);
+  transform: rotate(45deg);
 }
 
 /* --- Answer body — smooth reveal --- */
 .faq-list details .faq-list-item-body {
-  padding: var(--gap-lg) var(--gap-xl);
+  padding: var(--faq-answer-padding);
   color: var(--faq-answer-color);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
   line-height: 1.7;
-  border-top: 1px solid #b4aea1;
-  background-color: var(--faq-hover-bg);
 }
 
 .faq-list details .faq-list-item-body a {
@@ -200,6 +190,7 @@
   text-decoration: underline;
 }
 
-.faq-list details .faq-list-item-body p:last-child {
-  margin-bottom: 0;
+.faq-list details[open] .faq-list-item-body {
+  border-top: 1px solid var(--faq-border-color);
+  background-color: var(--background-color);
 }
