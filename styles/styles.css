@@ -401,10 +401,10 @@ a.button:active {
 }
 
 
-/* Primary: dark bg, white text */
+/* Primary: accent bg, white text */
 a.button.primary {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
   color: var(--background-color);
 }
 
@@ -503,24 +503,24 @@ main > .section.dark a:any-link:not(.button) {
   color: var(--accent-color);
 }
 
-/* dark section: primary button inverts to white fill + amber shadow */
+/* dark section: primary button uses vibrant accent fill */
 main > .section.dark a.button.primary {
-  border-color: var(--background-color);
-  background-color: var(--background-color);
-  color: var(--dark-color);
-}
-
-/* dark section: ghost button uses white outline */
-main > .section.dark a.button.secondary {
-  border-color: rgb(255 255 255 / 50%);
-  background-color: transparent;
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
   color: var(--background-color);
 }
 
+/* dark section: ghost button uses accent outline */
+main > .section.dark a.button.secondary {
+  border-color: var(--accent-color);
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
 main > .section.dark a.button.secondary:hover {
-  background-color: var(--background-color);
-  border-color: var(--background-color);
-  color: var(--dark-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--background-color);
 }
 
 /* dark section: focus ring uses white */
