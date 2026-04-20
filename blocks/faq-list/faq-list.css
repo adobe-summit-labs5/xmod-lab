@@ -107,17 +107,30 @@
   background: none;
 }
 
-/* --- FAQ item (details element) — rounded pill with hover accent --- */
+/* --- FAQ item (details element) — rounded pill --- */
 .faq-list details {
-  border: 1px solid var(--faq-border-color);
+  border: 1px solid var(--faq-accent-color);
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: var(--gap-xs);
-  transition: border-color 0.15s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.faq-list details:hover {
-  border-color: var(--faq-accent-color);
+/* Closed hover: dark border + dark outer bg (visible as ring around orange summary) */
+.faq-list details:not([open]):hover {
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+}
+
+/* Open default: cream bg behind both summary and answer */
+.faq-list details[open] {
+  background-color: #f2ece3;
+}
+
+/* Open hover: accent bg on outer, dark border */
+.faq-list details[open]:hover {
+  background-color: var(--faq-accent-color);
+  border-color: var(--dark-color);
 }
 
 .faq-list details p {
@@ -134,55 +147,78 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--faq-question-padding);
+  padding: 16px 24px;
   cursor: pointer;
   list-style: none;
   font-family: var(--body-font-family);
-  font-size: var(--faq-question-font-size);
-  font-weight: var(--faq-question-font-weight);
+  font-size: 18px;
+  font-weight: 600;
   text-transform: none;
   letter-spacing: normal;
-  line-height: 1.6;
+  line-height: 22px;
   color: var(--dark-color);
-  transition: background-color 0.15s ease;
+  transition: background-color 0.2s ease;
 }
 
 .faq-list details summary::-webkit-details-marker {
   display: none;
 }
 
-/* Hover: warm background on question row */
-.faq-list details summary:hover {
-  background-color: var(--faq-hover-bg);
+/* Closed default: cream bg */
+.faq-list details:not([open]) summary {
+  background-color: #f2ece3;
 }
 
-/* Open state: keep hover background on summary */
+/* Closed hover: accent bg, text stays dark */
+.faq-list details:not([open]) summary:hover {
+  background-color: var(--faq-accent-color);
+}
+
+/* Open default: transparent (cream from parent shows through) */
 .faq-list details[open] summary {
-  background-color: var(--faq-hover-bg);
-  border-radius: 15px 15px 0 0;
+  background-color: transparent;
 }
 
-/* Plus icon → rotates 45° to × when open */
+/* Open hover: transparent (accent from parent shows through) */
+.faq-list details[open] summary:hover {
+  background-color: transparent;
+}
+
+/* --- Plus / close icon --- */
 .faq-list details summary::after {
   content: "+";
   font-size: 20px;
   font-weight: 400;
+  line-height: 20px;
   color: var(--faq-accent-color);
   margin-left: var(--gap-md, 16px);
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.2s ease;
 }
 
+/* Closed hover: white icon */
+.faq-list details:not([open]):hover summary::after {
+  color: #fff;
+}
+
+/* Open default: rotated + (×) in accent */
 .faq-list details[open] summary::after {
   transform: rotate(45deg);
+  color: var(--faq-accent-color);
 }
 
-/* --- Answer body — smooth reveal --- */
+/* Open hover: × in cream */
+.faq-list details[open]:hover summary::after {
+  color: #f2ece3;
+}
+
+/* --- Answer body --- */
 .faq-list details .faq-list-item-body {
-  padding: var(--faq-answer-padding);
+  padding: 16px 24px;
   color: var(--faq-answer-color);
   font-family: var(--body-font-family);
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 27px;
 }
 
 .faq-list details .faq-list-item-body a {
@@ -190,7 +226,13 @@
   text-decoration: underline;
 }
 
+/* Open default: cream bg from parent, no extra border */
 .faq-list details[open] .faq-list-item-body {
-  border-top: 1px solid var(--faq-border-color);
-  background-color: var(--background-color);
+  border-top: none;
+  background-color: transparent;
+}
+
+/* Open hover: cream bg on answer body so it contrasts with accent outer */
+.faq-list details[open]:hover .faq-list-item-body {
+  background-color: #f2ece3;
 }
