@@ -77,6 +77,19 @@ main > .hero-container {
   line-height: 1.1;
   letter-spacing: -0.02em;
   max-width: 608px;
+  background: linear-gradient(90deg, #ff1744, #ff9100, #ffea00, #ff1744);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  animation: vegas-glow 3s linear infinite;
+}
+
+@keyframes vegas-glow {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .hero p:not(.tag-pill) {
