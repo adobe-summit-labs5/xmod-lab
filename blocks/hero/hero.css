@@ -138,7 +138,7 @@ main .hero a.button:any-link {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--dark-color));
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.2s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 main .hero a.button:any-link:hover {
@@ -152,28 +152,52 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* Vegas-style animated buttons */
+@keyframes vegas-glow-primary {
+  0%, 100% { box-shadow: 0 0 8px #e8651a, 0 0 20px #e8651a80, 3px 3px 0 0 var(--btn-shadow, var(--dark-color)); }
+  50% { box-shadow: 0 0 16px #ff3c6f, 0 0 40px #ff3c6f80, 3px 3px 0 0 var(--btn-shadow, var(--dark-color)); }
+}
+
+@keyframes vegas-glow-secondary {
+  0%, 100% { box-shadow: 0 0 8px #a855f7, 0 0 20px #a855f780, 3px 3px 0 0 var(--btn-shadow, var(--dark-color)); }
+  50% { box-shadow: 0 0 16px #06b6d4, 0 0 40px #06b6d480, 3px 3px 0 0 var(--btn-shadow, var(--dark-color)); }
+}
+
+@keyframes vegas-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* primary button on hero — hot Vegas neon */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  color: var(--dark-color);
+  background: linear-gradient(90deg, #e8651a, #ff3c6f, #fbbf24, #e8651a);
+  background-size: 300% 100%;
+  border: 2px solid #ff3c6f;
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  animation: vegas-glow-primary 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  filter: brightness(1.15);
+  animation: vegas-glow-primary 0.8s ease-in-out infinite, vegas-shimmer 1.5s linear infinite;
 }
 
-/* secondary button on hero — white outline, dark shadow */
+/* secondary button on hero — cool neon outline */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
-  color: var(--background-color);
+  border: 2px solid #a855f7;
+  color: #e0d4ff;
+  text-shadow: 0 0 6px #a855f780;
+  animation: vegas-glow-secondary 2.5s ease-in-out infinite;
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
-  color: var(--dark-color);
+  border-color: #06b6d4;
+  background: linear-gradient(90deg, #a855f7, #06b6d4, #a855f7);
+  background-size: 300% 100%;
+  color: #fff;
+  animation: vegas-glow-secondary 0.8s ease-in-out infinite, vegas-shimmer 2s linear infinite;
 }
 
 @media (width < 768px) {
