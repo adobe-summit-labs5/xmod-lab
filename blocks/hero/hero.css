@@ -124,17 +124,17 @@ main > .hero-container {
  */
 /* Vegas neon glow keyframes */
 @keyframes vegas-glow-primary {
-  0%, 100% { box-shadow: 0 0 8px #a855f7, 0 0 20px #a855f7, 3px 3px 0 0 #a855f7; }
-  25% { box-shadow: 0 0 12px #c084fc, 0 0 30px #c084fc, 3px 3px 0 0 #c084fc; }
-  50% { box-shadow: 0 0 8px #7c3aed, 0 0 20px #7c3aed, 3px 3px 0 0 #7c3aed; }
-  75% { box-shadow: 0 0 12px #a855f7, 0 0 30px #a855f7, 3px 3px 0 0 #a855f7; }
+  0%, 100% { box-shadow: 0 0 8px #ef4444, 0 0 20px #ef4444, 3px 3px 0 0 #ef4444; }
+  25% { box-shadow: 0 0 12px #f87171, 0 0 30px #f87171, 3px 3px 0 0 #f87171; }
+  50% { box-shadow: 0 0 8px #dc2626, 0 0 20px #dc2626, 3px 3px 0 0 #dc2626; }
+  75% { box-shadow: 0 0 12px #ef4444, 0 0 30px #ef4444, 3px 3px 0 0 #ef4444; }
 }
 
 @keyframes vegas-glow-secondary {
-  0%, 100% { box-shadow: 0 0 8px #9333ea, 0 0 20px #9333ea, 3px 3px 0 0 #9333ea; }
-  25% { box-shadow: 0 0 12px #c084fc, 0 0 30px #c084fc, 3px 3px 0 0 #c084fc; }
-  50% { box-shadow: 0 0 8px #6b21a8, 0 0 20px #6b21a8, 3px 3px 0 0 #6b21a8; }
-  75% { box-shadow: 0 0 12px #d8b4fe, 0 0 30px #d8b4fe, 3px 3px 0 0 #d8b4fe; }
+  0%, 100% { box-shadow: 0 0 8px #b91c1c, 0 0 20px #b91c1c, 3px 3px 0 0 #b91c1c; }
+  25% { box-shadow: 0 0 12px #f87171, 0 0 30px #f87171, 3px 3px 0 0 #f87171; }
+  50% { box-shadow: 0 0 8px #991b1b, 0 0 20px #991b1b, 3px 3px 0 0 #991b1b; }
+  75% { box-shadow: 0 0 12px #fca5a5, 0 0 30px #fca5a5, 3px 3px 0 0 #fca5a5; }
 }
 
 @keyframes vegas-shimmer {
@@ -171,11 +171,11 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button — purple Vegas neon */
+/* primary button — red Vegas neon */
 main .hero a.button.primary:any-link {
-  background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc, #a855f7, #7c3aed);
+  background: linear-gradient(90deg, #dc2626, #ef4444, #f87171, #ef4444, #dc2626);
   background-size: 200% auto;
-  border: 2px solid #a855f7;
+  border: 2px solid #ef4444;
   color: #fff;
   text-shadow: 0 1px 2px rgb(0 0 0 / 40%);
   animation: vegas-glow-primary 3s ease-in-out infinite, vegas-shimmer 4s linear infinite;
@@ -186,19 +186,19 @@ main .hero a.button.primary:any-link:hover {
   animation: vegas-glow-primary 1.5s ease-in-out infinite, vegas-shimmer 2s linear infinite;
 }
 
-/* secondary button — purple neon outline */
+/* secondary button — red neon outline */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid #c084fc;
+  border: 2px solid #f87171;
   color: #fff;
-  text-shadow: 0 0 8px rgb(168 85 247 / 50%);
+  text-shadow: 0 0 8px rgb(239 68 68 / 50%);
   animation: vegas-glow-secondary 3s ease-in-out infinite;
 }
 
 main .hero a.button.secondary:any-link:hover {
-  background: linear-gradient(90deg, #6b21a8, #9333ea, #c084fc, #9333ea, #6b21a8);
+  background: linear-gradient(90deg, #991b1b, #b91c1c, #f87171, #b91c1c, #991b1b);
   background-size: 200% auto;
-  border-color: #c084fc;
+  border-color: #f87171;
   color: #fff;
   animation: vegas-glow-secondary 1.5s ease-in-out infinite, vegas-shimmer 2s linear infinite;
 }
