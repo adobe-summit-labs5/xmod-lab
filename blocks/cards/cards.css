@@ -123,8 +123,21 @@
   margin: 0;
 }
 
-/* "Read More" link */
+/* "Read More" link — animated CTA */
+@keyframes cards-cta-nudge {
+  0%, 60%, 100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(4px);
+  }
+}
+
 .cards.cards-article .cards-card-body > p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--heading-font-family);
   font-size: var(--body-font-size-xs);
   font-weight: 700;
@@ -132,6 +145,23 @@
   color: var(--accent-color);
   text-decoration: underline;
   text-underline-offset: var(--text-link-underline-offset);
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.cards.cards-article .cards-card-body > p:last-child a::after {
+  content: '\2192';
+  display: inline-block;
+  animation: cards-cta-nudge 1.8s ease-in-out infinite;
+}
+
+.cards.cards-article > ul > li:hover .cards-card-body > p:last-child a {
+  text-shadow: 0 0 8px rgb(232 101 26 / 40%);
+}
+
+.cards.cards-article > ul > li:hover .cards-card-body > p:last-child a::after {
+  animation: none;
+  transform: translateX(6px);
+  transition: transform 0.2s ease;
 }
 
 /* dark section: glass card variant */
