@@ -41,9 +41,11 @@
   gap: var(--gap-xs);
 }
 
-/* tag pill — uses .tag-pill utility from styles.css */
+/* tag pill — uses .tag-pill utility from styles.css, Vegas green override */
 .featured-article .tag-pill {
   width: fit-content;
+  background-color: #00ff8c;
+  color: var(--dark-color);
 }
 
 /* also support em tag pills */
@@ -81,18 +83,18 @@
   background-color: var(--dark-color);
   color: var(--background-color);
   border-radius: var(--button-border-radius);
-  box-shadow: 3px 3px 0 var(--accent-color);
+  box-shadow: 3px 3px 0 #00ff8c;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .featured-article .featured-article-content p:last-child a:hover {
   transform: translateY(-2px);
-  box-shadow: 5px 5px 0 var(--accent-color);
+  box-shadow: 5px 5px 0 #00ff8c;
 }
 
 .featured-article .featured-article-content p:last-child a:active {
   transform: translateY(0);
-  box-shadow: 0 0 0 var(--accent-color);
+  box-shadow: 0 0 0 #00ff8c;
 }
 
 @media (width >= 768px) {
