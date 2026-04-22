@@ -164,13 +164,17 @@ main .hero a.button:any-link:active {
   }
 }
 
-@keyframes vegas-shimmer {
-  0% {
-    background-position: -200% center;
+@keyframes vegas-cyan-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #00e5ff, 0 0 20px rgb(0 229 255 / 40%), inset 0 0 8px rgb(0 229 255 / 10%), 3px 3px 0 0 #00e5ff;
+    border-color: #00e5ff;
+    text-shadow: 0 0 6px rgb(0 229 255 / 40%);
   }
 
-  100% {
-    background-position: 200% center;
+  50% {
+    box-shadow: 0 0 16px #7c4dff, 0 0 36px rgb(124 77 255 / 50%), inset 0 0 12px rgb(124 77 255 / 15%), 3px 3px 0 0 #7c4dff;
+    border-color: #7c4dff;
+    text-shadow: 0 0 8px rgb(124 77 255 / 50%);
   }
 }
 
@@ -198,13 +202,13 @@ main .hero a.button.primary:any-link:active {
   animation: none;
 }
 
-/* secondary button on hero — cool neon outline */
+/* secondary button on hero — cool neon outline with pulse */
 main .hero a.button.secondary:any-link {
   background: transparent;
   border: 2px solid #00e5ff;
   color: #00e5ff;
   text-shadow: 0 0 6px rgb(0 229 255 / 40%);
-  box-shadow: 0 0 8px rgb(0 229 255 / 30%), inset 0 0 8px rgb(0 229 255 / 10%), 3px 3px 0 0 #00e5ff;
+  animation: vegas-cyan-pulse 2.5s ease-in-out infinite;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -215,11 +219,13 @@ main .hero a.button.secondary:any-link:hover {
   text-shadow: none;
   transform: translate(-2px, -2px) scale(1.05);
   box-shadow: 0 0 20px rgb(0 229 255 / 60%), 0 0 40px rgb(0 229 255 / 30%), 5px 5px 0 0 #00e5ff;
+  animation: none;
 }
 
 main .hero a.button.secondary:any-link:active {
   transform: translate(0, 0) scale(0.98);
   box-shadow: 0 0 6px rgb(0 229 255 / 30%);
+  animation: none;
 }
 
 @media (width < 768px) {

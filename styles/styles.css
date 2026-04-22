@@ -540,6 +540,20 @@ main > .section.dark *:focus-visible {
   }
 }
 
+@keyframes vegas-dark-cyan-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #00e5ff, 0 0 20px rgb(0 229 255 / 40%), inset 0 0 8px rgb(0 229 255 / 10%), 3px 3px 0 0 #00e5ff;
+    border-color: #00e5ff;
+    text-shadow: 0 0 6px rgb(0 229 255 / 40%);
+  }
+
+  50% {
+    box-shadow: 0 0 16px #7c4dff, 0 0 36px rgb(124 77 255 / 50%), inset 0 0 12px rgb(124 77 255 / 15%), 3px 3px 0 0 #7c4dff;
+    border-color: #7c4dff;
+    text-shadow: 0 0 8px rgb(124 77 255 / 50%);
+  }
+}
+
 main > .section.dark a.button.primary {
   background: linear-gradient(135deg, #ff2d55, #ff6b00, #ffcc00);
   border: 2px solid #ff2d55;
@@ -565,8 +579,7 @@ main > .section.dark a.button.secondary {
   border: 2px solid #00e5ff;
   background-color: transparent;
   color: #00e5ff;
-  text-shadow: 0 0 6px rgb(0 229 255 / 40%);
-  box-shadow: 0 0 8px rgb(0 229 255 / 30%), inset 0 0 8px rgb(0 229 255 / 10%), 3px 3px 0 0 #00e5ff;
+  animation: vegas-dark-cyan-pulse 2.5s ease-in-out infinite;
 }
 
 main > .section.dark a.button.secondary:hover {
@@ -576,11 +589,13 @@ main > .section.dark a.button.secondary:hover {
   text-shadow: none;
   transform: translate(-2px, -2px) scale(1.05);
   box-shadow: 0 0 20px rgb(0 229 255 / 60%), 0 0 40px rgb(0 229 255 / 30%), 5px 5px 0 0 #00e5ff;
+  animation: none;
 }
 
 main > .section.dark a.button.secondary:active {
   transform: translate(0, 0) scale(0.98);
   box-shadow: 0 0 6px rgb(0 229 255 / 30%);
+  animation: none;
 }
 
 /* Accent: orange bg, dark text */
