@@ -156,9 +156,10 @@
   background-color: var(--faq-hover-bg);
 }
 
-/* Open state: keep hover background on summary */
+/* Open state: accent background with white text */
 .faq-list details[open] summary {
-  background-color: var(--faq-hover-bg);
+  background-color: var(--faq-accent-color);
+  color: var(--background-color);
   border-radius: 15px 15px 0 0;
 }
 
@@ -175,6 +176,7 @@
 
 .faq-list details[open] summary::after {
   transform: rotate(45deg);
+  color: var(--background-color);
 }
 
 /* --- Answer body — smooth reveal --- */
@@ -190,7 +192,11 @@
   text-decoration: underline;
 }
 
+.faq-list details[open] {
+  border-color: var(--faq-accent-color);
+}
+
 .faq-list details[open] .faq-list-item-body {
-  border-top: 1px solid var(--faq-border-color);
-  background-color: var(--background-color);
+  border-top: none;
+  background-color: var(--faq-hover-bg);
 }
