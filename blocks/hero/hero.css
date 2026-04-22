@@ -152,42 +152,49 @@ main .hero a.button:any-link {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  filter: grayscale(100%) brightness(0.85);
+  animation: none;
+  transition: filter 0.5s ease, transform 0.2s ease, box-shadow 0.5s ease;
+}
+
+main .hero a.button:any-link:hover {
+  filter: grayscale(0%) brightness(1);
 }
 
 main .hero a.button:any-link:active {
   transform: scale(0.96);
 }
 
-/* primary button — hot pink-to-gold neon gradient */
+/* primary button — desaturated at rest, neon on hover */
 main .hero a.button.primary:any-link {
   background: linear-gradient(135deg, #ff2d95, #ff6b35, #ffe14d);
   background-size: 200% 200%;
   border: 2px solid #ff2d95;
   color: #fff;
   text-shadow: 0 1px 4px rgb(0 0 0 / 40%);
-  animation: vegas-neon-pulse 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
+  box-shadow: 0 0 6px rgb(255 255 255 / 15%);
 }
 
 main .hero a.button.primary:any-link:hover {
   transform: translate(-2px, -2px) scale(1.05);
-  filter: brightness(1.15);
+  animation: vegas-neon-pulse 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
   text-decoration: none;
 }
 
-/* secondary button — cyan-to-purple neon outline */
+/* secondary button — desaturated at rest, neon on hover */
 main .hero a.button.secondary:any-link {
   background: transparent;
   border: 2px solid #00e5ff;
   color: #fff;
   text-shadow: 0 0 8px rgb(0 229 255 / 50%);
-  animation: vegas-neon-pulse-secondary 2.5s ease-in-out infinite;
+  box-shadow: 0 0 4px rgb(255 255 255 / 10%);
 }
 
 main .hero a.button.secondary:any-link:hover {
   transform: translate(-2px, -2px) scale(1.05);
   background: linear-gradient(135deg, #00e5ff40, #b388ff40);
   border-color: #b388ff;
+  animation: vegas-neon-pulse-secondary 2.5s ease-in-out infinite;
   text-decoration: none;
 }
 
