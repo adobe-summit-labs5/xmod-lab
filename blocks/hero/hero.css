@@ -26,6 +26,8 @@ main > .hero-container {
   padding: var(--gap-2xl) var(--gap-lg);
   overflow: hidden;
   color: var(--text-on-dark);
+  border-bottom: 3px solid #ff3296;
+  box-shadow: 0 4px 30px rgb(255 50 150 / 30%);
 }
 
 .hero picture {
@@ -42,13 +44,13 @@ main > .hero-container {
   height: 100%;
 }
 
-/* overlay gradient — bottom-to-top for text readability */
+/* overlay gradient — Vegas neon purple-to-black */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(0deg, rgb(0 0 0 / 75%) 0%, rgb(0 0 0 / 45%) 40%, rgb(0 0 0 / 25%));
+  background: linear-gradient(0deg, rgb(20 0 40 / 85%) 0%, rgb(80 0 120 / 50%) 40%, rgb(30 0 60 / 35%));
   pointer-events: none;
 }
 
@@ -77,6 +79,7 @@ main > .hero-container {
   line-height: 1.1;
   letter-spacing: -0.02em;
   max-width: 608px;
+  text-shadow: 0 0 20px rgb(255 50 150 / 60%), 0 0 60px rgb(255 50 150 / 30%), 0 2px 4px rgb(0 0 0 / 50%);
 }
 
 .hero p:not(.tag-pill) {
@@ -87,10 +90,12 @@ main > .hero-container {
   text-shadow: 0 1px 3px rgb(0 0 0 / 35%);
 }
 
-/* eyebrow pill — uses .tag-pill utility, adds hero-specific overrides */
+/* eyebrow pill — Vegas neon glow */
 .hero .tag-pill {
   margin-bottom: var(--gap-md);
   text-shadow: none;
+  background: linear-gradient(135deg, #ff3296, #ff6b35);
+  box-shadow: 0 0 12px rgb(255 50 150 / 50%), 0 0 30px rgb(255 50 150 / 20%);
 }
 
 /* lead paragraph — after h1 */
@@ -152,28 +157,32 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* primary button on hero — neon gold Vegas glow */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  color: var(--dark-color);
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  border: 2px solid #ffd700;
+  color: #1a0030;
+  box-shadow: 3px 3px 0 0 #ff3296, 0 0 16px rgb(255 215 0 / 40%);
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  filter: brightness(1.1);
+  box-shadow: 5px 5px 0 0 #ff3296, 0 0 28px rgb(255 215 0 / 60%);
 }
 
-/* secondary button on hero — white outline, dark shadow */
+/* secondary button on hero — neon pink outline */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
+  border: 2px solid rgb(255 50 150 / 60%);
   color: var(--background-color);
+  box-shadow: 3px 3px 0 0 rgb(255 50 150 / 40%), 0 0 12px rgb(255 50 150 / 20%);
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
-  color: var(--dark-color);
+  border-color: #ff3296;
+  background: rgb(255 50 150 / 15%);
+  color: var(--background-color);
+  box-shadow: 5px 5px 0 0 rgb(255 50 150 / 50%), 0 0 24px rgb(255 50 150 / 35%);
 }
 
 @media (width < 768px) {
