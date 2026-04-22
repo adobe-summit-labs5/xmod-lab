@@ -528,6 +528,61 @@ main > .section.dark *:focus-visible {
   outline-color: var(--background-color);
 }
 
+/* === Vegas neon buttons in dark sections === */
+
+@keyframes vegas-dark-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #ff2d55, 0 0 20px rgb(255 45 85 / 40%), 3px 3px 0 0 #ff2d55;
+  }
+
+  50% {
+    box-shadow: 0 0 14px #ffcc00, 0 0 32px rgb(255 204 0 / 50%), 3px 3px 0 0 #ffcc00;
+  }
+}
+
+main > .section.dark a.button.primary {
+  background: linear-gradient(135deg, #ff2d55, #ff6b00, #ffcc00);
+  border: 2px solid #ff2d55;
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  animation: vegas-dark-pulse 2s ease-in-out infinite;
+}
+
+main > .section.dark a.button.primary:hover {
+  transform: translate(-2px, -2px) scale(1.05);
+  filter: brightness(1.15);
+  box-shadow: 0 0 24px #ffcc00, 0 0 48px rgb(255 204 0 / 50%), 5px 5px 0 0 #ffcc00;
+  animation: none;
+}
+
+main > .section.dark a.button.primary:active {
+  transform: translate(0, 0) scale(0.98);
+  box-shadow: 0 0 8px #ff2d55;
+  animation: none;
+}
+
+main > .section.dark a.button.secondary {
+  border: 2px solid #00e5ff;
+  background-color: transparent;
+  color: #00e5ff;
+  text-shadow: 0 0 6px rgb(0 229 255 / 40%);
+  box-shadow: 0 0 8px rgb(0 229 255 / 30%), inset 0 0 8px rgb(0 229 255 / 10%), 3px 3px 0 0 #00e5ff;
+}
+
+main > .section.dark a.button.secondary:hover {
+  background-color: #00e5ff;
+  border-color: #00e5ff;
+  color: var(--dark-color);
+  text-shadow: none;
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow: 0 0 20px rgb(0 229 255 / 60%), 0 0 40px rgb(0 229 255 / 30%), 5px 5px 0 0 #00e5ff;
+}
+
+main > .section.dark a.button.secondary:active {
+  transform: translate(0, 0) scale(0.98);
+  box-shadow: 0 0 6px rgb(0 229 255 / 30%);
+}
+
 /* Accent: orange bg, dark text */
 main > .section.accent {
   background-color: var(--accent-color);
