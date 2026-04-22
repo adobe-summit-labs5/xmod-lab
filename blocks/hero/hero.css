@@ -152,28 +152,60 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* Vegas-style neon glow keyframes */
+@keyframes vegas-neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgb(255 0 100 / 60%), 0 0 20px rgb(255 0 100 / 30%), 3px 3px 0 0 rgb(255 0 100);
+  }
+
+  50% {
+    box-shadow: 0 0 16px rgb(255 0 100 / 80%), 0 0 40px rgb(255 0 100 / 40%), 3px 3px 0 0 rgb(255 0 100);
+  }
+}
+
+@keyframes vegas-neon-pulse-secondary {
+  0%, 100% {
+    box-shadow: 0 0 8px rgb(0 200 255 / 50%), 0 0 20px rgb(0 200 255 / 25%), 3px 3px 0 0 rgb(0 200 255 / 60%);
+  }
+
+  50% {
+    box-shadow: 0 0 16px rgb(0 200 255 / 70%), 0 0 40px rgb(0 200 255 / 35%), 3px 3px 0 0 rgb(0 200 255 / 80%);
+  }
+}
+
+/* primary button on hero — hot pink neon Vegas glow */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  color: var(--dark-color);
+  background: linear-gradient(135deg, #ff0064, #ff6b00);
+  border: 2px solid #ff0064;
+  color: #fff;
+  text-shadow: 0 0 6px rgb(255 255 255 / 50%);
+  animation: vegas-neon-pulse 2s ease-in-out infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  background: linear-gradient(135deg, #ff6b00, #ffe600);
+  border-color: #ff6b00;
+  color: #fff;
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px rgb(255 107 0 / 80%), 0 0 50px rgb(255 107 0 / 40%), 5px 5px 0 0 rgb(255 107 0);
+  animation: none;
 }
 
-/* secondary button on hero — white outline, dark shadow */
+/* secondary button on hero — electric cyan neon outline */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
-  color: var(--background-color);
+  border: 2px solid rgb(0 200 255 / 70%);
+  color: rgb(0 230 255);
+  text-shadow: 0 0 6px rgb(0 200 255 / 40%);
+  animation: vegas-neon-pulse-secondary 2.5s ease-in-out infinite;
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
-  color: var(--dark-color);
+  border-color: #0ff;
+  background: rgb(0 200 255 / 15%);
+  color: #fff;
+  box-shadow: 0 0 24px rgb(0 255 255 / 70%), 0 0 50px rgb(0 255 255 / 30%), 5px 5px 0 0 rgb(0 255 255 / 60%);
+  animation: none;
 }
 
 @media (width < 768px) {
