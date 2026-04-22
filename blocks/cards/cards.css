@@ -53,14 +53,16 @@
   border: 1px solid var(--border-color-light);
   border-radius: var(--card-border-radius);
   overflow: hidden;
-  background-color: var(--background-color);
+  background-color: #fff;
   transition: var(--card-hover-transition);
+  box-shadow: 0 0 12px rgb(232 101 26 / 15%), 0 0 4px rgb(232 101 26 / 8%);
 }
 
 .cards.cards-article > ul > li:hover {
-  background-color: var(--cream-color);
-  border-color: var(--border-color);
-  box-shadow: var(--card-hover-shadow);
+  background-color: #fff;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 24px rgb(232 101 26 / 35%), 0 0 8px rgb(232 101 26 / 18%);
+  transform: translateY(-4px);
 }
 
 .cards.cards-article .cards-card-image {
@@ -107,7 +109,7 @@
   font-size: var(--body-font-size-s);
   letter-spacing: 0.7px;
   line-height: 1.1;
-  color: var(--dark-color);
+  color: #1a1a2e;
 }
 
 .cards.cards-article .cards-card-body h3 a,
