@@ -152,28 +152,82 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* primary button on hero — Vegas neon gold */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  background: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
+  background-size: 200% 200%;
+  border: 2px solid #ffd700;
   color: var(--dark-color);
+  text-shadow: 0 0 2px rgb(255 215 0 / 30%);
+  box-shadow:
+    3px 3px 0 0 var(--btn-shadow, var(--dark-color)),
+    0 0 15px rgb(255 215 0 / 40%),
+    0 0 30px rgb(255 140 0 / 20%);
+  animation: vegas-shimmer 3s ease infinite, vegas-flicker 4s ease-in-out infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  filter: brightness(1.15);
+  box-shadow:
+    5px 5px 0 0 var(--btn-shadow, var(--dark-color)),
+    0 0 25px rgb(255 215 0 / 60%),
+    0 0 50px rgb(255 140 0 / 35%);
 }
 
-/* secondary button on hero — white outline, dark shadow */
+/* secondary button on hero — Vegas neon pink outline */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
-  color: var(--background-color);
+  border: 2px solid #ff2d95;
+  color: #ff2d95;
+  text-shadow: 0 0 6px rgb(255 45 149 / 50%);
+  box-shadow:
+    3px 3px 0 0 var(--btn-shadow, var(--dark-color)),
+    0 0 12px rgb(255 45 149 / 30%),
+    inset 0 0 12px rgb(255 45 149 / 8%);
+  animation: vegas-pulse 2s ease-in-out infinite;
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
-  color: var(--dark-color);
+  background: #ff2d95;
+  border-color: #ff2d95;
+  color: #fff;
+  text-shadow: 0 0 8px rgb(255 255 255 / 60%);
+  box-shadow:
+    5px 5px 0 0 var(--btn-shadow, var(--dark-color)),
+    0 0 30px rgb(255 45 149 / 60%),
+    0 0 60px rgb(255 45 149 / 25%);
+}
+
+/* Vegas neon animations */
+@keyframes vegas-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes vegas-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.85; }
+  97% { opacity: 1; }
+}
+
+@keyframes vegas-pulse {
+  0%, 100% {
+    box-shadow:
+      3px 3px 0 0 var(--btn-shadow, var(--dark-color)),
+      0 0 12px rgb(255 45 149 / 30%),
+      inset 0 0 12px rgb(255 45 149 / 8%);
+  }
+
+  50% {
+    box-shadow:
+      3px 3px 0 0 var(--btn-shadow, var(--dark-color)),
+      0 0 20px rgb(255 45 149 / 50%),
+      inset 0 0 20px rgb(255 45 149 / 15%);
+  }
 }
 
 @media (width < 768px) {
