@@ -52,8 +52,20 @@
   margin-right: var(--gap-sm);
 }
 
+@keyframes vegas-featured-glow {
+  0%, 100% { text-shadow: 0 0 8px rgb(232 101 26 / 50%), 0 0 16px rgb(255 215 0 / 30%); }
+  50% { text-shadow: 0 0 16px rgb(232 101 26 / 70%), 0 0 32px rgb(255 215 0 / 50%), 0 0 48px rgb(255 140 66 / 25%); }
+}
+
+@keyframes vegas-featured-color {
+  0%, 100% { color: var(--text-color); }
+  33% { color: #e8651a; }
+  66% { color: #c7520f; }
+}
+
 .featured-article h2 {
   margin-top: var(--gap-sm);
+  animation: vegas-featured-glow 2.5s ease-in-out infinite, vegas-featured-color 5s ease-in-out infinite;
 }
 
 .featured-article .featured-article-content p:not(.tag-pill) {
