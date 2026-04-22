@@ -48,6 +48,20 @@ main > .hero-container {
   filter: grayscale(0%) brightness(1);
 }
 
+/* green circle — top right */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 14px;
+  height: 14px;
+  background-color: #00e676;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 8px #00e676, 0 0 16px rgb(0 230 118 / 40%);
+}
+
 /* overlay gradient — bottom-to-top for text readability */
 .hero::after {
   content: '';
