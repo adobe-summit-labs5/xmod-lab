@@ -152,11 +152,11 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* primary button on hero — accent bg, white text */
 main .hero a.button.primary:any-link {
   background: var(--accent-color);
   border: 2px solid var(--accent-color);
-  color: var(--dark-color);
+  color: #fff;
 }
 
 main .hero a.button.primary:any-link:hover {
