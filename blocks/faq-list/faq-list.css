@@ -116,7 +116,8 @@
   transition: border-color 0.15s ease;
 }
 
-.faq-list details:hover {
+.faq-list details:hover,
+.faq-list details[open] {
   border-color: var(--faq-accent-color);
 }
 
@@ -156,9 +157,10 @@
   background-color: var(--faq-hover-bg);
 }
 
-/* Open state: keep hover background on summary */
+/* Open state: accent background, white text */
 .faq-list details[open] summary {
-  background-color: var(--faq-hover-bg);
+  background-color: var(--faq-accent-color);
+  color: var(--background-color);
   border-radius: 15px 15px 0 0;
 }
 
@@ -174,7 +176,9 @@
 }
 
 .faq-list details[open] summary::after {
-  transform: rotate(45deg);
+  content: "\00d7";
+  color: var(--background-color);
+  transform: none;
 }
 
 /* --- Answer body — smooth reveal --- */
@@ -191,6 +195,6 @@
 }
 
 .faq-list details[open] .faq-list-item-body {
-  border-top: 1px solid var(--faq-border-color);
-  background-color: var(--background-color);
+  border-top: none;
+  background-color: var(--cream-color, #f5f0e8);
 }
