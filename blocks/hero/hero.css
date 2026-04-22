@@ -209,7 +209,7 @@ main .hero a.button.secondary:any-link:hover {
   }
 }
 
-/* ===== Vegas-style animated buttons ===== */
+/* ===== Vegas-style animated buttons — desaturated at rest, color on hover ===== */
 
 @keyframes neon-pulse {
   0%, 100% { box-shadow: 0 0 8px #ff2d95, 0 0 20px rgb(255 45 149 / 50%), 0 0 40px rgb(255 45 149 / 25%); }
@@ -226,47 +226,59 @@ main .hero a.button.secondary:any-link:hover {
   100% { background-position: 200% center; }
 }
 
+/* Primary — desaturated at rest */
 main .hero a.button.primary:any-link {
   background: linear-gradient(135deg, #ff2d95, #ff6b35, #ffd600, #ff2d95);
   background-size: 300% 100%;
   border: 2px solid rgb(255 255 255 / 30%);
   color: #fff;
   text-shadow: 0 1px 4px rgb(0 0 0 / 40%);
-  animation: neon-pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
-  box-shadow: 0 0 8px #ff2d95, 0 0 20px rgb(255 45 149 / 50%), 0 0 40px rgb(255 45 149 / 25%);
+  filter: grayscale(100%) brightness(0.8);
+  box-shadow: 0 0 6px rgb(180 180 180 / 40%), 0 0 16px rgb(180 180 180 / 20%);
+  animation: shimmer 3s linear infinite;
+  transition: filter 0.5s ease, box-shadow 0.5s ease, transform 0.15s ease;
 }
 
+/* Primary — full color + neon glow on hover */
 main .hero a.button.primary:any-link:hover {
+  filter: grayscale(0%) brightness(1.15);
   transform: translate(-2px, -2px) scale(1.05);
-  filter: brightness(1.15);
+  animation: neon-pulse 2s ease-in-out infinite, shimmer 3s linear infinite;
   box-shadow: 0 0 16px #ff2d95, 0 0 40px rgb(255 45 149 / 70%), 0 0 80px rgb(255 45 149 / 40%);
 }
 
 main .hero a.button.primary:any-link:active {
+  filter: grayscale(0%) brightness(1);
   transform: translateY(0) scale(0.98);
   box-shadow: 0 0 6px #ff2d95, 0 0 12px rgb(255 45 149 / 40%);
 }
 
+/* Secondary — desaturated at rest */
 main .hero a.button.secondary:any-link {
   border: 2px solid #00e5ff;
   background: transparent;
   color: #00e5ff;
   text-shadow: 0 0 8px rgb(0 229 255 / 60%);
-  animation: neon-pulse-secondary 2s ease-in-out infinite 0.5s;
-  box-shadow: 0 0 8px #00e5ff, 0 0 20px rgb(0 229 255 / 50%), 0 0 40px rgb(0 229 255 / 25%);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  filter: grayscale(100%) brightness(0.8);
+  box-shadow: 0 0 6px rgb(180 180 180 / 40%), 0 0 16px rgb(180 180 180 / 20%);
+  transition: filter 0.5s ease, box-shadow 0.5s ease, transform 0.15s ease,
+    background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
 }
 
+/* Secondary — full color + neon glow on hover */
 main .hero a.button.secondary:any-link:hover {
+  filter: grayscale(0%) brightness(1);
   transform: translate(-2px, -2px) scale(1.05);
   background-color: #00e5ff;
   border-color: #00e5ff;
   color: #0f1a14;
   text-shadow: none;
+  animation: neon-pulse-secondary 2s ease-in-out infinite;
   box-shadow: 0 0 16px #00e5ff, 0 0 40px rgb(0 229 255 / 70%), 0 0 80px rgb(0 229 255 / 40%);
 }
 
 main .hero a.button.secondary:any-link:active {
+  filter: grayscale(0%) brightness(1);
   transform: translateY(0) scale(0.98);
   box-shadow: 0 0 6px #00e5ff, 0 0 12px rgb(0 229 255 / 40%);
 }
