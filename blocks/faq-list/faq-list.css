@@ -16,8 +16,10 @@
 
   max-width: var(--faq-max-width);
   margin: 0 auto;
-  padding: 0;
+  padding: var(--gap-xl);
   font-family: var(--body-font-family);
+  background-color: var(--light-color);
+  border-radius: var(--card-border-radius);
 }
 
 /* --- Header row: heading + link side-by-side --- */
@@ -144,22 +146,38 @@
   letter-spacing: normal;
   line-height: 1.6;
   color: var(--dark-color);
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .faq-list details summary::-webkit-details-marker {
   display: none;
 }
 
-/* Hover: warm background on question row */
-.faq-list details summary:hover {
-  background-color: var(--faq-hover-bg);
+/* Hover (collapsed): solid accent bg with white text */
+.faq-list details:not([open]) summary:hover {
+  background-color: var(--faq-accent-color);
+  color: var(--background-color);
 }
 
-/* Open state: keep hover background on summary */
+/* Hover (collapsed): white "+" icon */
+.faq-list details:not([open]) summary:hover::after {
+  color: var(--background-color);
+}
+
+/* Open state: accent background on summary */
 .faq-list details[open] summary {
-  background-color: var(--faq-hover-bg);
+  background-color: var(--faq-accent-color);
+  color: var(--dark-color);
   border-radius: 15px 15px 0 0;
+}
+
+/* Open hover: white text + icon */
+.faq-list details[open] summary:hover {
+  color: var(--background-color);
+}
+
+.faq-list details[open] summary:hover::after {
+  color: var(--background-color);
 }
 
 /* Plus icon → rotates 45° to × when open */
@@ -170,11 +188,12 @@
   color: var(--faq-accent-color);
   margin-left: var(--gap-md, 16px);
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.15s ease;
 }
 
 .faq-list details[open] summary::after {
   transform: rotate(45deg);
+  color: var(--dark-color);
 }
 
 /* --- Answer body — smooth reveal --- */
@@ -191,6 +210,6 @@
 }
 
 .faq-list details[open] .faq-list-item-body {
-  border-top: 1px solid var(--faq-border-color);
-  background-color: var(--background-color);
+  background-color: var(--faq-hover-bg);
+  padding-top: var(--gap-md);
 }
