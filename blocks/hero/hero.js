@@ -31,4 +31,27 @@ export default function decorate(block) {
       if (!em.querySelector('a')) em.classList.add('tag-pill');
     });
   }
+
+  // Floating emoji decorations — each emoji bobs independently
+  const bottomEmojis = ['🌸', '🐾', '🌷', '☁️', '🌼', '🐾', '🌸', '☁️', '🌺', '🐾', '🌷', '🌸'];
+  const topEmojis = ['🌸', '☁️', '🌼', '🐾', '🌷'];
+
+  function createEmojiRow(emojis, className) {
+    const row = document.createElement('div');
+    row.className = className;
+    row.setAttribute('aria-hidden', 'true');
+    emojis.forEach((emoji, i) => {
+      const span = document.createElement('span');
+      span.textContent = emoji;
+      span.style.animationDelay = `${(i * 0.35).toFixed(2)}s`;
+      row.append(span);
+    });
+    return row;
+  }
+
+  const wrapper = block.closest('.hero-wrapper');
+  if (wrapper) {
+    wrapper.append(createEmojiRow(bottomEmojis, 'hero-emoji-bottom'));
+    wrapper.append(createEmojiRow(topEmojis, 'hero-emoji-top'));
+  }
 }
