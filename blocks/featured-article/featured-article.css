@@ -78,14 +78,16 @@
   letter-spacing: 0.98px;
   text-decoration: none;
   padding: var(--gap-xs) var(--gap-xl);
-  background-color: var(--dark-color);
+  background-color: #2e7d32;
   color: var(--background-color);
   border-radius: var(--button-border-radius);
   box-shadow: 3px 3px 0 var(--accent-color);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .featured-article .featured-article-content p:last-child a:hover {
+  filter: grayscale(0%);
   transform: translateY(-2px);
   box-shadow: 5px 5px 0 var(--accent-color);
 }
